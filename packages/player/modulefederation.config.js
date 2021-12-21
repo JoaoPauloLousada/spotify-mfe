@@ -1,11 +1,10 @@
 const { dependencies } = require("./package.json");
 
 module.exports = {
-  name: "shell",
+  name: "player",
   filename: "remoteEntry.js",
-  remotes: {
-    sidebar: "sidebar@http://localhost:8081/remoteEntry.js",
-    player: "player@http://localhost:8082/remoteEntry.js"
+  exposes: {
+    "./Player": "./src/Player",
   },
   shared: {
     ...dependencies,
