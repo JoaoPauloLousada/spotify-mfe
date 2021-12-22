@@ -1,0 +1,19 @@
+.sidebar {
+  padding-top: 1rem;
+  background-color: blueviolet;
+  height: 100%;
+  width: 100%;
+}
+.list-item {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+.list-item__image {
+  width: 40px;
+  margin-right: 1rem;
+}
+.list-item__image img {
+  width: 40px;
+}
