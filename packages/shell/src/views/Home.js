@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import ContentArea from '../components/ContentArea';
 import ErrorBoundary from '../components/Error';
 import { useAuth } from '../hooks/useAuth';
 import { useListeners } from '../hooks/useListeners';
@@ -24,7 +25,7 @@ function Home() {
             </ErrorBoundary>
           </div>
           <div className='col-span-4 lg:col-span-6 xl:col-span-8 bg-neutral-900'>
-            content [shell]
+            <ContentArea />
           </div>
           <div className='col-span-4 lg:col-span-3 xl:col-span-2'>
             activity area [shell]
