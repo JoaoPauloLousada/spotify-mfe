@@ -23,7 +23,7 @@ function Home() {
               </Suspense>
             </ErrorBoundary>
           </div>
-          <div className='col-span-4 lg:col-span-6 xl:col-span-8'>
+          <div className='col-span-4 lg:col-span-6 xl:col-span-8 bg-neutral-900'>
             content [shell]
           </div>
           <div className='col-span-4 lg:col-span-3 xl:col-span-2'>

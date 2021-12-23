@@ -1,13 +1,16 @@
 .sidebar {
-  padding-top: 1rem;
-  background-color: blueviolet;
+  padding: 2rem 0.5rem;
+  background-color: black;
+  color: white;
   height: 100%;
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.list-item {
+.listItem {
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
   padding-left: 1rem;
 }
 .list-item__image {
@@ -16,4 +19,8 @@
 }
 .list-item__image img {
   width: 40px;
+}
+.sidebarDivider {
+  border-color: #535353;
+  margin: 1rem;
 }
