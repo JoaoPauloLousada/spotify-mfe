@@ -4,7 +4,7 @@ module.exports = {
   name: "signin",
   filename: "remoteEntry.js",
   exposes: {
-    // "./Player": "./src/Player",
+    "./Login": "./src/Login",
   },
   shared: {
     ...dependencies,
