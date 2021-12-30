@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const paths = require("react-scripts/config/paths");
 
 const getModuleFederationConfigPath = (additionalPaths = []) => {
   const path = require("path");
@@ -17,15 +18,42 @@ const getModuleFederationConfigPath = (additionalPaths = []) => {
 };
 
 module.exports = {
-  overrideWebpackConfig: ({ webpackConfig }) => {
+  overrideWebpackConfig: ({ webpackConfig, pluginOptions }) => {
     const moduleFederationConfigPath = getModuleFederationConfigPath();
 
-    webpackConfig.output.publicPath = "auto";
-    webpackConfig.plugins = [
-      ...webpackConfig.plugins,
-      new webpack.container.ModuleFederationPlugin(require(moduleFederationConfigPath))
-    ];
+    if (moduleFederationConfigPath) {
+      webpackConfig.output.publicPath = "auto";
 
+      if (pluginOptions?.useNamedChunkIds) {
+        webpackConfig.optimization.chunkIds = "named";
+      }
+
+      const htmlWebpackPlugin = webpackConfig.plugins.find(
+        (plugin) => plugin.constructor.name === "HtmlWebpackPlugin"
+      );
+
+      htmlWebpackPlugin.userOptions = {
+        ...htmlWebpackPlugin.userOptions,
+        publicPath: paths.publicUrlOrPath,
+        excludeChunks: [require(moduleFederationConfigPath).name],
+      };
+
+      webpackConfig.plugins = [
+        ...webpackConfig.plugins,
+        new webpack.container.ModuleFederationPlugin(
+          require(moduleFederationConfigPath)
+        ),
+      ];
+    }
     return webpackConfig;
-  }
-}
+  },
+  overrideDevServerConfig: ({ devServerConfig }) => {
+    devServerConfig.headers = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Access-Control-Allow-Headers": "*",
+    };
+
+    return devServerConfig;
+  },
+};
