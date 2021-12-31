@@ -1,8 +1,8 @@
-import React, { Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import Home from "../views/Home";
 import ErrorBoundary from "./Error";
-const Login = React.lazy(() => import('signin/Login'))
+const Login = lazy(() => import("../views/Login"));
 
 export default function Router() {
   return (
