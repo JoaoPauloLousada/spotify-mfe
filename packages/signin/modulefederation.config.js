@@ -4,7 +4,7 @@ module.exports = {
   name: "signin",
   filename: "remoteEntry.js",
   exposes: {
-    "./Login": "./src/Login",
+    "./Login": "./src/bootstrap",
   },
   shared: {
     ...dependencies,
