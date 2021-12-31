@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './Sidebar';
-import reportWebVitals from './reportWebVitals';
-import './global.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Sidebar />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const mount = ({ el }) => {
+  console.log('mount sidebar', el);
+  ReactDOM.render(
+    <React.StrictMode>
+      <Sidebar />
+    </React.StrictMode>,
+    el
+  );
+}
 
-reportWebVitals();
+const el = document.getElementById('_sidebar-dev-root')
+const isStandalone = Boolean(el);
+if (isStandalone) {
+  import('./global.css');
+  mount({ el })
+}
+
+export { mount }

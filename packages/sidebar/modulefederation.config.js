@@ -4,7 +4,7 @@ module.exports = {
   name: "sidebar",
   filename: "remoteEntry.js",
   exposes: {
-    "./Sidebar": "./src/Sidebar",
+    "./Sidebar": "./src/bootstrap",
   },
   shared: {
     ...dependencies,
