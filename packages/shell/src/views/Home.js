@@ -5,7 +5,7 @@ import { useAuth } from '../hooks/useAuth';
 import { useListeners } from '../hooks/useListeners';
 import { useSpotify } from '../hooks/useSpotify';
 
-const Sidebar = React.lazy(() => import('sidebar/Sidebar'))
+const Sidebar = React.lazy(() => import('../components/Sidebar'));
 const Player = React.lazy(() => import('player/Player'))
 
 function Home() {
