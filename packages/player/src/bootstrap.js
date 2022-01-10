@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Player from './Player';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Player />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const mount = ({ el }) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Player />
+    </React.StrictMode>,
+    el
+  );
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const el = document.getElementById('_player-dev-root')
+const isStandalone = Boolean(el);
+if (isStandalone) {
+  mount({ el })
+}
+
+export { mount }
+

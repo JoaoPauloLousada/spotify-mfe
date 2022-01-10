@@ -4,7 +4,7 @@ module.exports = {
   name: "player",
   filename: "remoteEntry.js",
   exposes: {
-    "./Player": "./src/Player",
+    "./Player": "./src/bootstrap",
   },
   shared: {
     ...dependencies,

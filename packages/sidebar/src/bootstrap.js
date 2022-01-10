@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Sidebar from './Sidebar';
 
 const mount = ({ el }) => {
-  console.log('mount sidebar', el);
   ReactDOM.render(
     <React.StrictMode>
       <Sidebar />

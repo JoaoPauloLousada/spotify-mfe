@@ -6,7 +6,7 @@ import { useListeners } from '../hooks/useListeners';
 import { useSpotify } from '../hooks/useSpotify';
 
 const Sidebar = React.lazy(() => import('../components/Sidebar'));
-const Player = React.lazy(() => import('player/Player'))
+const FooterPlayer = React.lazy(() => import('../components/FooterPlayer'));
 
 function Home() {
   useAuth();
@@ -33,10 +33,9 @@ function Home() {
 
         </div>
         <div className='col-span-12 h-20'>
-          footer [shell]
           <ErrorBoundary>
             <Suspense fallback={<></>}>
-              <Player />
+              <FooterPlayer />
             </Suspense>
           </ErrorBoundary>
         </div>
