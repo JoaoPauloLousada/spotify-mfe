@@ -17,8 +17,8 @@ function Sidebar() {
   return (
     <div className={styles.sidebar}>
       <div>
-        <ListTile text='Home' icon={<FontAwesomeIcon icon={faHome} />} active />
-        <ListTile text='Search' icon={<FontAwesomeIcon icon={faSearch} />} />
+        <ListTile route="/" text='Home' icon={<FontAwesomeIcon icon={faHome} />} active />
+        <ListTile route="/search" text='Search' icon={<FontAwesomeIcon icon={faSearch} />} />
         <ListTile text='Your library' icon={<FontAwesomeIcon icon={faHeadphones} />} />
       </div>
       <div style={{ marginTop: '2rem' }}>

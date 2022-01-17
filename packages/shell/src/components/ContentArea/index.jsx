@@ -5,8 +5,10 @@ export default function ContentArea() {
   const {playlist} = usePlaylist();
   
   return (
-    <div>
-      {playlist && <div>playlist selected: {playlist.href}</div>}
+    <div className='px-4'>
+      <h1 className='text-2xl text-center my-10'>Home content area</h1>
+      {playlist && <div>
+        <span className='font-bold text-xl'>Playlist selected:</span> {playlist.href}</div>}
     </div>
   )
 }
