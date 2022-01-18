@@ -1,7 +1,10 @@
 const deps = require('./package.json').dependencies
 
 module.exports = {
-  publicPath: "http://localhost:8080/",
+  publicPath: "http://localhost:8084/",
+  devServer: {
+    port: 8084
+  },
   chainWebpack: (config) => {
     config.optimization.delete('splitChunks')
     /* module federation plugin import */

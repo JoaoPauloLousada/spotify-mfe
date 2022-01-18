@@ -15,7 +15,7 @@ export default function LayoutDefault({ children }) {
               </Suspense>
             </ErrorBoundary>
           </div>
-          <div className='col-span-4 lg:col-span-6 xl:col-span-8 bg-neutral-900'>
+          <div className='overflow-hidden col-span-4 lg:col-span-6 xl:col-span-8 bg-neutral-900'>
             {children}
           </div>
         </div>
