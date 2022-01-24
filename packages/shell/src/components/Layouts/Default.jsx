@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import ErrorBoundary from '../Error'
 const Sidebar = React.lazy(() => import('../Sidebar'));
 const FooterPlayer = React.lazy(() => import('../FooterPlayer'));
+const FriendActivity = React.lazy(() => import('../FriendActivity'));
 
 export default function LayoutDefault({ children }) {
   return (
@@ -17,6 +18,13 @@ export default function LayoutDefault({ children }) {
           </div>
           <div className='overflow-hidden col-span-4 lg:col-span-6 xl:col-span-8 bg-neutral-900'>
             {children}
+          </div>
+          <div className='col-span-4 lg:col-span-3 xl:col-span-2'>
+            <ErrorBoundary>
+              <Suspense fallback={<></>}>
+                <FriendActivity />
+              </Suspense>
+            </ErrorBoundary>
           </div>
         </div>
         <div className='col-span-12 h-20'>

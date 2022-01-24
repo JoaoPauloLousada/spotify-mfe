@@ -21,5 +21,6 @@ export default {
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 2px;
+  color: black;
 }
 </style>
