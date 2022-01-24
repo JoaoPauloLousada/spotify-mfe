@@ -8,5 +8,9 @@
   "useWorkspaces": true,
   "workspaces": [
     "packages/*"
+  ],
+  "nohoist": [
+    "**/@vue/cli-plugin-eslint",
+    "**/@vue/cli-plugin-eslint/**"
   ]
 }
