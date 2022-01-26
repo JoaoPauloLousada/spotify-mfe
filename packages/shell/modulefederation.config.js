@@ -1,14 +1,15 @@
+require('dotenv').config({ path: '../../.env' });
 const { dependencies } = require("./package.json");
-
+console.log(process.env)
 module.exports = {
   name: "shell",
   filename: "remoteEntry.js",
   remotes: {
-    sidebar: "sidebar@http://localhost:8081/remoteEntry.js",
-    player: "player@http://localhost:8082/remoteEntry.js",
-    signin: "signin@http://localhost:8083/remoteEntry.js",
-    home_content: "home_content@http://localhost:8084/remoteEntry.js",
-    friend_activity: "friend_activity@http://localhost:8085/remoteEntry.js"
+    sidebar: process.env.SIDEBAR_URL,
+    player: process.env.PLAYER_URL,
+    signin: process.env.SIGNIN_URL,
+    home_content: process.env.HOME_CONTENT_URL,
+    friend_activity: process.env.FRIEND_ACTIVITY_URL
   },
   shared: {
     ...dependencies,
