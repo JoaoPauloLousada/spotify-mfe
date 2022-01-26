@@ -1,6 +1,6 @@
 require('dotenv').config({ path: '../../.env' });
 const { dependencies } = require("./package.json");
-console.log(process.env)
+
 module.exports = {
   name: "shell",
   filename: "remoteEntry.js",
