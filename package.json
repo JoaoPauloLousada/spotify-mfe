@@ -11,5 +11,8 @@
       "apps/*",
       "libs/*"
     ]
+  },
+  "scripts": {
+    "dev:host": "cd ./apps/host && yarn dev"
   }
 }
