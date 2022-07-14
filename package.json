@@ -1,0 +1,15 @@
+{
+  "name": "spotify-mfe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:JoaoPauloLousada/spotify-mfe.git",
+  "author": "Joao Lousada <jplousada@hotmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*"
+    ]
+  }
+}
