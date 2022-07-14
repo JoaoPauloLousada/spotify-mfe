@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
 
 const mountApplication = htmlElement => {
-  ReactDOM.render(<h1>Hello World! I'm sidebar</h1>, htmlElement)
+  ReactDOM.render(<App />, htmlElement)
 }
 
 
@@ -13,3 +14,5 @@ if (isDevelopment) {
 
   if (devRootHtmlElement) mountApplication(devRootHtmlElement)
 }
+
+export { mountApplication }
