@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {lazy, Suspense} from 'react'
 import styled from 'styled-components'
+import ErrorBoundary from '../ErrorBoundary'
 
+const SidebarWrapper = lazy(() => import('../SidebarWrapper'))
 
 const Wrapper = styled.main`
   display: grid;
@@ -15,7 +17,11 @@ export default function Layout() {
   return (
     <Wrapper>
       <div>
-        Sidebar
+        <ErrorBoundary>
+          <Suspense fallback={<div>Loading...</div>}>
+            <SidebarWrapper />
+          </Suspense>
+        </ErrorBoundary>
       </div>
       <div>
         Content
