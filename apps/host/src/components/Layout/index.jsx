@@ -19,7 +19,7 @@ export default function Layout() {
       <div>
         <ErrorBoundary>
           <Suspense fallback={<div>Loading...</div>}>
-            <SidebarWrapper />
+            {/* <SidebarWrapper /> */}
           </Suspense>
         </ErrorBoundary>
       </div>
