@@ -1,6 +1,5 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-// import { mountApplication } from 'sidebar/bootstrap'
 import Router from './Router'
 
 const GlobalStyle = createGlobalStyle`
@@ -15,6 +14,5 @@ export default function App() {
   return <>
     <GlobalStyle />
     <Router />
-    {/* <Application mountApplication={mountApplication} /> */}
   </>
 }
