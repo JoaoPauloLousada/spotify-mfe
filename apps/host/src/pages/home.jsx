@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Layout from '../components/Layout'
 
 
 const Wrapper = styled.div`
@@ -8,6 +9,6 @@ const Wrapper = styled.div`
 
 export default function Home() {
   return (
-    <Wrapper>Home</Wrapper>
+    <Layout>Home</Layout>
   )
 }
