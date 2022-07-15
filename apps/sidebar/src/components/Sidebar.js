@@ -1,5 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  background-color: aliceblue;
+`
 
 export default function Sidebar() {
-  return <div>I'm the sidebar component</div>
+  return <Wrapper>I'm the sidebar component</Wrapper>
 }
