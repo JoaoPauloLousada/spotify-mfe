@@ -1,0 +1,12 @@
+{
+  "name": "@spotify-mfe/shell",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "",
+  "dependencies": {
+    "spotify-web-api-js": "^1.5.2"
+  },
+  "scripts": {
+    "dev": "node index.js"
+  }
+}
