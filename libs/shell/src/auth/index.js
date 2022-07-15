@@ -1,8 +1,5 @@
-import SpotifyAPI from 'spotify-web-api-js';
-
-const spotify = new SpotifyAPI()
-
 export default class Auth {
+  spotify
   authEndpoint = "https://accounts.spotify.com/authorize"
   redirectUri
   clientId = "68262efa2578442f804543a66ce7d5f0"
@@ -15,7 +12,8 @@ export default class Auth {
   ];
   loginUrl
 
-  constructor({ appUrl }) {
+  constructor({ appUrl, spotify }) {
+    this.spotify = spotify
     this.redirectUri = appUrl
     this.loginUrl = `${this.authEndpoint}?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&scope=${this.scopes.join(
       "%20"
@@ -51,14 +49,14 @@ export default class Auth {
 
       window.location.hash = ""
       localStorage.setItem('SPOTIFY_TOKEN', token)
-      console.log('getTokenFromUrl', token);
     }
 
     try {
-      spotify.setAccessToken(token)
-      await spotify.getMe()
+      this.spotify.setAccessToken(token)
+      await this.spotify.getMe()
       return true
     } catch (error) {
+      localStorage.removeItem('SPOTIFY_TOKEN')
       this.redirectToLogin()
       return false
     }
