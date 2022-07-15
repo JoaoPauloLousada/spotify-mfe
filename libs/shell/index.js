@@ -1,10 +1,10 @@
 import Auth from './src/auth'
 
+const initialize = async ({ appUrl }) => {
 
-const initialize = async () => {
-  const auth = new Auth()
-  if (!await auth.isAuth()) {
-    console.log('user Is Not Authenticated')
+  const auth = new Auth({ appUrl })
+  if (!await auth.handleAuth()) {
+    console.log('user Is Not Authenticated', appUrl)
   }
 
   return Promise.resolve({ SHELL_STATE: null });
