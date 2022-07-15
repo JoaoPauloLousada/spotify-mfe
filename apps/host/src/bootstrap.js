@@ -18,6 +18,6 @@ const Main = () => {
 
 const htmlElement = document.getElementById('host-app')
 
-Shell.initialize()
+Shell.initialize({ appUrl: 'http://localhost:8080' })
   .then(({ SHELL_STATE }) => console.log('After shell is initialized:', SHELL_STATE))
   .then(() => ReactDOM.render(<Main />, htmlElement))
