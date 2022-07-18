@@ -15,6 +15,7 @@
   "scripts": {
     "dev:host": "yarn workspace @spotify-mfe/host run dev",
     "dev:sidebar": "yarn workspace @spotify-mfe/sidebar run dev",
-    "dev:home": "yarn workspace @spotify-mfe/home run dev"
+    "dev:home": "yarn workspace @spotify-mfe/home run dev",
+    "dev:song": "yarn workspace @spotify-mfe/song-controller run dev"
   }
 }
