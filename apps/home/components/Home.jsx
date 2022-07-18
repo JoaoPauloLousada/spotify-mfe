@@ -10,6 +10,7 @@ const Wrapper = styled.section`
   color: white;
   font-family: 'Verdana';
   padding: 2rem 1.5rem;
+  
   * {
     box-sizing: border-box;
   }
