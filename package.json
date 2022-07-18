@@ -13,7 +13,7 @@
     ]
   },
   "scripts": {
-    "dev:host": "cd ./apps/host && yarn dev",
-    "dev:sidebar": "cd ./apps/sidebar && yarn dev"
+    "dev:host": "yarn workspace @spotify-mfe/host run dev",
+    "dev:sidebar": "yarn workspace @spotify-mfe/sidebar run dev"
   }
 }
