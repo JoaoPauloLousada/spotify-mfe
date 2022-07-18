@@ -16,7 +16,8 @@ const devConfig = {
       name: 'host',
       filename: 'remoteEntry.js',
       remotes: {
-        sidebar: 'sidebar@http://localhost:8081/remoteEntry.js'
+        sidebar: 'sidebar@http://localhost:8081/remoteEntry.js',
+        home: 'home@http://localhost:8082/remoteEntry.js'
       }
     }),
     new HtmlWebpackPlugin({
