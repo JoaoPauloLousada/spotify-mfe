@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
 import { Dependencies } from '../src/App';
 
@@ -45,6 +46,7 @@ const Title = styled.h3`
 `
 
 export default function FeaturedPlaylists() {
+  const router = useHistory()
   const { spotify } = useContext(Dependencies);
   const [playlists, setPlaylists] = useState([]);
 
@@ -53,7 +55,7 @@ export default function FeaturedPlaylists() {
   }, [])
 
   const loadPlaylist = (list) => {
-    spotify.getPlaylist(list.id).then(l => console.log('response', l))
+    router.push(`/${list.id}`)
   }
 
   return (
