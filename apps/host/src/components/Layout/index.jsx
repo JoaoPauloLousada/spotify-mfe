@@ -7,13 +7,12 @@ const SidebarWrapper = lazy(() => import('../SidebarWrapper'))
 const Wrapper = styled.main`
   display: grid;
   grid-template-columns: 250px 1fr;
-  grid-template-rows: 1fr 100px;
+  grid-template-rows: calc(100vh - 80px) 80px;
   height: 100vh;
   width: 100vw;
 `
 
-
-export default function Layout() {
+export default function Layout({children}) {
   return (
     <Wrapper>
       <div>
@@ -24,7 +23,7 @@ export default function Layout() {
         </ErrorBoundary>
       </div>
       <div>
-        Content
+        {children}
       </div>
       <div style={{gridColumn: '1 / 3'}}>
         The Player
