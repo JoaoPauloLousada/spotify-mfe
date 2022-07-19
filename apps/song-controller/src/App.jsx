@@ -1,12 +1,12 @@
 import React from 'react'
 import SongController from './components/SongController'
 
-const Dependencies = React.createContext({})
+export const Dependencies = React.createContext({})
 
-export default function App({ spotify }) {
-
+export default function App({ spotify, eventBus }) {
+  
   return (
-    <Dependencies.Provider value={{ spotify }}>
+    <Dependencies.Provider value={{ spotify, eventBus }}>
       <SongController />
     </Dependencies.Provider>
   )
