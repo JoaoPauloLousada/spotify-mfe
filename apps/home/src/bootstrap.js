@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Shell from '@spotify-mfe/shell';
 import App from './App';
-import { createBrowserHistory } from "history";
+import { createMemoryHistory } from "history";
 
 const mountApplication = (htmlElement, dependencies) => {
-  const history = createBrowserHistory();
+  const history = createMemoryHistory();
 
   ReactDOM.render(<App {...dependencies} history={history} />, htmlElement)
 }
