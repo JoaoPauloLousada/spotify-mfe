@@ -6,12 +6,12 @@ import Shell from '@spotify-mfe/shell';
 
 export const Dependencies = React.createContext({});
 
-const Main = ({ spotify }) => {
+const Main = ({ spotify, eventBus }) => {
   return (
     <>
       <React.StrictMode>
         <BrowserRouter>
-          <Dependencies.Provider value={{ spotify }}>
+          <Dependencies.Provider value={{ spotify, eventBus }}>
             <App />
           </Dependencies.Provider>
         </BrowserRouter>
@@ -23,4 +23,4 @@ const Main = ({ spotify }) => {
 const htmlElement = document.getElementById('host-app')
 
 Shell.initialize({ appUrl: 'http://localhost:8080' })
-  .then(({ spotify }) => ReactDOM.render(<Main spotify={spotify} />, htmlElement))
+  .then((dependencies) => ReactDOM.render(<Main {...dependencies} />, htmlElement))
