@@ -1,8 +1,7 @@
-import React, { Suspense } from 'react'
-import styled from 'styled-components'
+import React, { lazy, Suspense } from 'react'
 import ErrorBoundary from '../components/ErrorBoundary'
-import HomeWrapper from '../components/HomeWrapper'
 import Layout from '../components/Layout'
+const HomeWrapper = lazy(() => import('../components/HomeWrapper'))
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
 import React, {lazy, Suspense} from 'react'
 import styled from 'styled-components'
 import ErrorBoundary from '../ErrorBoundary'
-import SongControllerWrapper from '../SongControllerWrapper'
 
 const SidebarWrapper = lazy(() => import('../SidebarWrapper'))
+const SongControllerWrapper = lazy(() => import('../SongControllerWrapper'))
 
 const Wrapper = styled.main`
   display: grid;
