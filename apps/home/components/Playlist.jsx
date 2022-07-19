@@ -54,7 +54,7 @@ const ArtistName = styled.small`
 `
 
 export default function Playlist() {
-  const { spotify } = useContext(Dependencies);
+  const { spotify, eventBus } = useContext(Dependencies);
   const { id } = useParams();
   const [playlist, setPlaylist] = useState(null)
   const tracks = useMemo(() => playlist?.tracks?.items ?? [], [playlist])
@@ -63,8 +63,8 @@ export default function Playlist() {
     spotify.getPlaylist(id).then(response => setPlaylist(response))
   }, [])
 
-  const play = (id) => {
-    console.log('play', id)
+  const play = (track) => {
+    eventBus.dispatch('PLAY', track)
   }
 
   if (!playlist) return <Wrapper />
@@ -82,7 +82,7 @@ export default function Playlist() {
       <TracksWrapper>
         <Tracks>
         {tracks.map(({track}) => (
-          <Track key={track.id} onClick={() => play(track.id)}>
+          <Track key={track.id} onClick={() => play(track)}>
             <img src={track.album?.images?.[0].url ?? ''} width="60px"/>
             <div style={{paddingLeft: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
               <p style={{margin: '0 0 0.25rem',}}>{track.name}</p>

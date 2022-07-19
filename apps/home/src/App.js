@@ -10,9 +10,9 @@ import Playlist from '../components/Playlist';
 
 export const Dependencies = React.createContext({})
 
-export default function App({ spotify, history }) {
+export default function App({ spotify, history, eventBus }) {
   return (
-    <Dependencies.Provider value={{ spotify }}>
+    <Dependencies.Provider value={{ spotify, eventBus }}>
       <Router history={history} location={history.location}>
         <Switch>
           <Route exact path="/">
