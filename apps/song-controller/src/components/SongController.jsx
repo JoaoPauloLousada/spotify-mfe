@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
+import { Dependencies } from '../App'
 
 const Wrapper = styled.section`
   background-color: #121212;
@@ -20,7 +21,18 @@ const Right = styled.div``
 
 
 export default function SongController() {
-  
+  const {spotify, eventBus} = useContext(Dependencies)
+
+  useEffect(() => {
+    const callback = (e) => spotify.play({context_uri: e.detail.uri})
+    
+    eventBus.on('PLAY', callback)
+
+    return () => {
+      eventBus.remove('PLAY', callback)
+    }
+  }, [])
+
   return (
     <Wrapper>
       <Left>left</Left>
