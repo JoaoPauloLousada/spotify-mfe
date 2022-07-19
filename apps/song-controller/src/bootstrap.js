@@ -9,7 +9,7 @@ const mountApplication = (htmlElement, dependencies) => {
 }
 
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = process.env.NODE_ENV === 'development' && document.getElementById('song-controller-app')
 if (isDevelopment) {
   Shell.initialize({ appUrl: 'http://localhost:8083' })
     .then(({ spotify }) => {

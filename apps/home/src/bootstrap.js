@@ -11,13 +11,13 @@ const mountApplication = (htmlElement, dependencies) => {
 }
 
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = process.env.NODE_ENV === 'development' && document.getElementById('home-app')
 if (isDevelopment) {
   Shell.initialize({ appUrl: 'http://localhost:8082' })
-    .then(({ spotify }) => {
+    .then((dependencies) => {
       const devRootHtmlElement = document.getElementById('home-app')
 
-      if (devRootHtmlElement) mountApplication(devRootHtmlElement, { spotify })
+      if (devRootHtmlElement) mountApplication(devRootHtmlElement, dependencies)
     })
 
 }
