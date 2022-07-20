@@ -10,6 +10,8 @@ const mountApplication = (htmlElement, dependencies) => {
   ReactDOM.render(<App {...dependencies} history={history} />, htmlElement)
 }
 
+const unmountApplication = (htmlElement) => ReactDOM.unmountComponentAtNode(htmlElement)
+
 
 const isDevelopment = process.env.NODE_ENV === 'development' && document.getElementById('home-app')
 if (isDevelopment) {
@@ -22,4 +24,4 @@ if (isDevelopment) {
 
 }
 
-export { mountApplication }
+export { mountApplication, unmountApplication }
