@@ -18,7 +18,6 @@ export default function Router() {
 
   useEffect(() => {
     const callback = (event) => {
-      console.log('CHILD_APP:NAVIGATE', event.detail.location.pathname);
       push(event.detail.appName, event.detail.location.pathname)
     }
 

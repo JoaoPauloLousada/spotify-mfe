@@ -50,7 +50,6 @@ export default function SongController() {
 
   useEffect(() => {
     const callback = (e) => {
-      console.log('e.detail', e.detail);
       spotify.play({context_uri: e.detail.uri})
       setTrack(e.detail)
     }

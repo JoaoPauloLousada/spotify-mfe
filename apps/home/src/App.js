@@ -18,7 +18,6 @@ export default function App({ spotify, history, eventBus, onMounted }) {
   useEffect(() => {
     const callback = ({ detail: location }) => {
       if (history.location.pathname !== location.pathname) {
-        console.log('PARENT_APP:NAVIGATE', location, history.location)
         history.push(location.pathname)
       }
     }
