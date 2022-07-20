@@ -18,6 +18,7 @@
     "dev:home": "yarn workspace @spotify-mfe/home run dev",
     "dev:song": "yarn workspace @spotify-mfe/song-controller run dev",
     "dev:search": "yarn workspace @spotify-mfe/search run dev",
-    "build:host": "yarn workspace @spotify-mfe/host run build"
+    "build:host": "yarn workspace @spotify-mfe/host run build",
+    "build:sidebar": "yarn workspace @spotify-mfe/sidebar run build"
   }
 }
