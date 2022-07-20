@@ -1,8 +1,10 @@
-import React, { useCallback, useContext, useEffect } from 'react'
+import React, { lazy, Suspense, useCallback, useContext, useEffect } from 'react'
 import { Route, Switch, useHistory } from "react-router-dom";
 import { Dependencies } from './bootstrap';
+import ErrorBoundary from './components/ErrorBoundary';
+import Layout from './components/Layout';
 import Home from './pages/home';
-
+const Search = lazy(() => import('./pages/Search'))
 
 export default function Router() {
   const { eventBus } = useContext(Dependencies)
@@ -28,10 +30,19 @@ export default function Router() {
   }, [])
 
   return (
-    <Switch>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route path="/search">
+          <ErrorBoundary>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Search />
+            </Suspense>
+          </ErrorBoundary>
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Layout>
   )
 }

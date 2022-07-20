@@ -86,7 +86,7 @@ export default function Sidebar() {
       </ListItem>
       <ListItem gap>
         <Icon src={search} />
-        <a href="#">Search</a>
+        <a href="/search" onClick={push}>Search</a>
       </ListItem>
     </List>
     <Divider />
