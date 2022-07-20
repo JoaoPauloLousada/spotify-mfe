@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react'
-import { mountApplication } from 'home/bootstrap'
+import { mountApplication, unmountApplication } from 'home/bootstrap'
 import Application from './Application';
 import { useHistory } from 'react-router-dom';
 import { Dependencies } from '../bootstrap';
@@ -12,6 +12,6 @@ export default function HomeWrapper() {
     eventBus.dispatch('PARENT_APP:NAVIGATE', history.location)
   }, [])
   return (
-    <Application mountApplication={mountApplication} onMounted={onMounted} />
+    <Application mountApplication={mountApplication} onMounted={onMounted} unmountApplication={unmountApplication} />
   )
 }

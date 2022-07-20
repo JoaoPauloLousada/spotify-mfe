@@ -1,13 +1,31 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext } from 'react'
 import { Dependencies } from '../bootstrap';
 
-export default function Application({ mountApplication, onMounted }) {
-  const htmlElement = useRef(null);
-  const {spotify, eventBus} = useContext(Dependencies);
+class Application extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      htmlElement: React.createRef(),
+    }
+  }
 
-  useEffect(() => {
-    mountApplication(htmlElement.current, {spotify, eventBus, onMounted})
-  }, [])
+  componentDidMount() {
+    const {spotify, eventBus, onMounted} = this.props;
+    this.props.mountApplication(this.state.htmlElement.current, {spotify, eventBus, onMounted});
+  }
 
-  return <div style={{height: '100%'}} ref={htmlElement}></div>
+  componentWillUnmount() {
+    this.props?.unmountApplication(this.state.htmlElement.current);
+  }
+
+  render() {
+    return <div style={{height: '100%'}} ref={this.state.htmlElement}></div>
+  }
 }
+
+const WithContextApplication = (props) => {
+  const dependencies = useContext(Dependencies);
+  return <Application {...dependencies} {...props} />
+}
+
+export default WithContextApplication
