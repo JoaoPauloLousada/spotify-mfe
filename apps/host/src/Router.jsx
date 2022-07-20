@@ -8,16 +8,9 @@ export default function Router() {
   const { eventBus } = useContext(Dependencies)
   const history = useHistory();
   
-  const push = useCallback((appName, route) => {
-    const routePrefix = new Map([
-      ['HOME', '']
-    ])
-
-    if (routePrefix.has(appName)) {
-      const nextPath = `${routePrefix.get(appName)}${route}`
-      if (history.location.pathname !== nextPath) {
-        history.push(nextPath)
-      }
+  const push = useCallback((appName, nextPath) => {
+    if (history.location.pathname !== nextPath) {
+      history.push(nextPath)
     }
   }, [])
 
