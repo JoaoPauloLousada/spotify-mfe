@@ -56,7 +56,6 @@ const Divider = styled.hr`
   margin: 1.125rem 0;
 `
 
-
 function useUserPlaylists() {
   const { spotify } = useContext(Dependencies);
   const [userPlaylistsResponse, setUserPlaylistsResponse] = useState(null);
@@ -72,12 +71,18 @@ function useUserPlaylists() {
 
 export default function Sidebar() {
   const { playlists } = useUserPlaylists()
+  const { eventBus } = useContext(Dependencies)
+
+  const push = (e) => {
+    e.preventDefault();
+    eventBus.dispatch('CHILD_APP:NAVIGATE', { appName: 'SIDEBAR', location: { pathname: e.target.pathname } })
+  }
 
   return <Wrapper>
     <List>
       <ListItem>
         <Icon src={home} />
-        <a href="#">Home</a>
+        <a href="/" onClick={push}>Home</a>
       </ListItem>
       <ListItem gap>
         <Icon src={search} />
@@ -88,7 +93,7 @@ export default function Sidebar() {
     <List>
       {playlists?.map(item => (
       <ListItem key={item.id}>
-        <a href="#">{item.name}</a>
+        <a href={`/${item.id}`} onClick={push}>{item.name}</a>
       </ListItem>))}
     </List>
   </Wrapper>
