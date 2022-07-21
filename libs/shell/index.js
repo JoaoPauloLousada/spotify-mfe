@@ -2,7 +2,7 @@ import SpotifyAPI from 'spotify-web-api-js';
 import Auth from './src/auth'
 import EventBus from './src/EventEmitter';
 
-const BASE_URL = process.env.BASE_URL
+const BASE_URL = 'https://host-spotify-mfe.netlify.app/'
 
 const initialize = async ({ appUrl }) => {
   const url = BASE_URL || appUrl

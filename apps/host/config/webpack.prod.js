@@ -2,7 +2,6 @@ const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
-const webpack = require('webpack');
 
 const prodConfig = {
   mode: 'production',
@@ -20,9 +19,6 @@ const prodConfig = {
       },
       shared: packageJson.dependencies
     }),
-    new webpack.DefinePlugin({
-      'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL)
-    })
   ]
 }
 
