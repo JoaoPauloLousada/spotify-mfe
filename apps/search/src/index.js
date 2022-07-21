@@ -1,2 +1,2 @@
-// Import bootstrap
+// Import bootstrap file
 import('./bootstrap');
