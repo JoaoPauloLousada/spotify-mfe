@@ -16,4 +16,4 @@
 
   # Default build command.
   # command = "yarn run  build"
-  ignore = "if [[ git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../libs/shell/ ]]\n then exit 0\n else exit1"
+  ignore = "if [[ git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF . ../../libs/shell/ ]];\n then exit 0\n else exit1"
