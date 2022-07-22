@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const commonConfig = require('./webpack.common');
+const { EnvironmentPlugin } = require('webpack')
 
 const devConfig = {
   mode: 'development',
@@ -19,6 +20,9 @@ const devConfig = {
         search: 'search@http://localhost:8084/remoteEntry.js',
       }
     }),
+    new EnvironmentPlugin({
+      BASE_URL: 'http://localhost:8080'
+    })
   ]
 }
 
