@@ -22,5 +22,6 @@ const Main = ({ spotify, eventBus }) => {
 
 const htmlElement = document.getElementById('host-app')
 
-Shell.initialize({ appUrl: 'http://localhost:8080' })
+const BASE_URL = process.env.BASE_URL
+Shell.initialize({ appUrl: BASE_URL || 'http://localhost:8080' })
   .then((dependencies) => ReactDOM.render(<Main {...dependencies} />, htmlElement))
