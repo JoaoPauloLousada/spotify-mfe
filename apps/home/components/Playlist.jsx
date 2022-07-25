@@ -5,36 +5,36 @@ import { useParams } from 'react-router-dom';
 
 
 const Wrapper = styled.div`
-  background-color: black;
+  background-color: ${({theme}) => theme['gray-300']};
   height: 100%;
   overflow-y: scroll;
-  color: white;
+  color: ${({theme}) => theme.light};
   font-family: 'Verdana';
-`
+  `
 
 const Header = styled.section`
   display: flex;
   align-items: flex-end;
   padding: 2rem;
+  background-color: ${({theme}) => theme['gray-200']};
 
-  background-color: #3b3b3b;
   > img {
     width: 250px;
     aspect-ratio: 1;
     box-shadow: 1px 5px 22px 5px rgba(0, 0, 0, 0.3);
   }
-`
+  `
 
 const OwnerName = styled.small`
-  color: #c5c5c5;
+  color: ${({theme}) => theme['gray-100']};
 `
 
 const TracksWrapper = styled.section`
-  color: white;
+  color: ${({theme}) => theme.light};
 `
 const Tracks = styled.ul`
   list-style: none;
-  color: white;
+  color: ${({theme}) => theme.light};
   padding: 0 1rem 1rem;
 `
 const Track = styled.li`
@@ -46,11 +46,11 @@ const Track = styled.li`
   transition: background-color 150ms;
 
   &:hover {
-    background-color: #373737;
+    background-color: ${({theme}) => theme['gray-200']};
   }
 `
 const ArtistName = styled.small`
-  color: #c5c5c5;
+  color: ${({theme}) => theme['gray-100']};
 `
 
 export default function Playlist() {
