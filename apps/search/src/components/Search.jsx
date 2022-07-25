@@ -56,7 +56,7 @@ export default function Search() {
         <Input type="text" onChange={onChange} placeholder="Search playlists" /> 
         <h2 style={{color: theme.light}}>Results</h2>
         <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px', padding: '1rem 0 4rem'}}>
-          {playlists.length && playlists.map(playlist => (
+          {playlists.map(playlist => (
             <Playlist key={playlist.id} onClick={() => push(playlist.id)}>
               {playlist?.images?.[0] && <img src={playlist.images[0].url} width="60px"/>}
               <p>{playlist.name}</p>
