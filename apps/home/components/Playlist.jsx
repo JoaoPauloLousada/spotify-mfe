@@ -81,7 +81,7 @@ export default function Playlist() {
       </Header>
       <TracksWrapper>
         <Tracks>
-        {tracks.map(({track}) => (
+        {tracks.map(({track}) => track && (
           <Track key={track.id} onClick={() => play(track)}>
             <img src={track.album?.images?.[0].url ?? ''} width="60px"/>
             <div style={{paddingLeft: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
