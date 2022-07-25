@@ -8,13 +8,13 @@ import sound from '../assets/sound.svg'
 import Range from './Range'
 
 const Wrapper = styled.section`
-  background-color: #121212;
+  background-color: ${({theme}) => theme['gray-300']};
   height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: 300px 1fr 300px;
   &, * {
-    color: white;
+    color: ${({theme}) => theme.light};
   }
 `
 
@@ -46,7 +46,7 @@ const Right = styled.div`
 
 
 export default function SongController() {
-  const {spotify, eventBus} = useContext(Dependencies)
+  const {spotify, eventBus, theme} = useContext(Dependencies)
   const [track, setTrack] = useState(null);
   const [playIcon, setPlayIcon] = useState(play)
 
@@ -122,7 +122,7 @@ export default function SongController() {
         {track && (
         <>
           <p style={{fontSize: '12px', margin: 0, marginBottom: '4px'}}>{track.name}</p>
-          <p style={{fontSize: '10px', margin: 0, color:'#b7b7b7'}}>{track.artists.map(artirst => artirst.name).filter(Boolean).join(", ")}</p>
+          <p style={{fontSize: '10px', margin: 0, color: theme['gray-100']}}>{track.artists.map(artirst => artirst.name).filter(Boolean).join(", ")}</p>
         </>
         )}
       </Left>
