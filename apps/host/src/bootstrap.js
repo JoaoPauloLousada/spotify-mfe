@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from "react-router-dom";
 import App from './App'
 import Shell from '@spotify-mfe/shell';
+import { ThemeProvider } from 'styled-components';
 
 export const Dependencies = React.createContext({});
 
@@ -12,7 +13,9 @@ const Main = ({ spotify, eventBus, theme }) => {
       <React.StrictMode>
         <BrowserRouter>
           <Dependencies.Provider value={{ spotify, eventBus, theme }}>
-            <App />
+            <ThemeProvider theme={theme}>
+              <App />
+            </ThemeProvider>
           </Dependencies.Provider>
         </BrowserRouter>
       </React.StrictMode>

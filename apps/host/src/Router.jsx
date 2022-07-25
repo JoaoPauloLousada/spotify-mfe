@@ -3,6 +3,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import { Dependencies } from './bootstrap';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
+import Loading from './components/Loading';
 import Home from './pages/home';
 const Search = lazy(() => import('./pages/Search'))
 
@@ -33,7 +34,7 @@ export default function Router() {
       <Switch>
         <Route path="/search">
           <ErrorBoundary>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
               <Search />
             </Suspense>
           </ErrorBoundary>

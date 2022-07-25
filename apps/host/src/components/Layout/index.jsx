@@ -1,6 +1,7 @@
 import React, {lazy, Suspense} from 'react'
 import styled from 'styled-components'
 import ErrorBoundary from '../ErrorBoundary'
+import Loading from '../Loading'
 
 const SidebarWrapper = lazy(() => import('../SidebarWrapper'))
 const SongControllerWrapper = lazy(() => import('../SongControllerWrapper'))
@@ -18,7 +19,7 @@ export default function Layout({children}) {
     <Wrapper>
       <div>
         <ErrorBoundary>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading/>}>
             <SidebarWrapper />
           </Suspense>
         </ErrorBoundary>
@@ -28,7 +29,7 @@ export default function Layout({children}) {
       </div>
       <div style={{gridColumn: '1 / 3'}}>
         <ErrorBoundary>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading/>}>
             <SongControllerWrapper />
           </Suspense>
         </ErrorBoundary>
