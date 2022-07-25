@@ -6,12 +6,12 @@ import Shell from '@spotify-mfe/shell';
 
 export const Dependencies = React.createContext({});
 
-const Main = ({ spotify, eventBus }) => {
+const Main = ({ spotify, eventBus, theme }) => {
   return (
     <>
       <React.StrictMode>
         <BrowserRouter>
-          <Dependencies.Provider value={{ spotify, eventBus }}>
+          <Dependencies.Provider value={{ spotify, eventBus, theme }}>
             <App />
           </Dependencies.Provider>
         </BrowserRouter>

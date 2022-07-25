@@ -5,10 +5,10 @@ import home from '../assets/home.svg'
 import search from '../assets/search.svg'
 
 const Wrapper = styled.div`
-  background-color: #000505;
+  background-color: ${({theme}) => theme.dark};
   height:100%;
   width: 100%;
-  color: white;
+  color: ${({theme}) => theme.light};
   padding: 2rem 1rem;
   box-sizing: border-box;
 
@@ -28,12 +28,12 @@ const ListItem = styled.li`
   display: flex;
   align-items: center;
   font-size: 12px;
-  color: #c7c5c5;
+  color: ${({theme}) => theme['gray-100']};
   transition: color 350ms;
   margin-top: ${({gap}) => gap && '0.75rem'};
 
   &:hover {
-    color: white;
+    color: ${({theme}) => theme.light};
   }
   
   > a {

@@ -10,8 +10,8 @@ class Application extends React.Component {
   }
 
   componentDidMount() {
-    const {spotify, eventBus, onMounted} = this.props;
-    this.props.mountApplication(this.state.htmlElement.current, {spotify, eventBus, onMounted});
+    const {spotify, eventBus, onMounted, theme} = this.props;
+    this.props.mountApplication(this.state.htmlElement.current, {spotify, eventBus, onMounted, theme});
   }
 
   componentWillUnmount() {
