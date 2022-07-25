@@ -4,18 +4,17 @@ import debounce from 'lodash.debounce';
 import { Dependencies } from '../App';
 
 const Playlist = styled.div`
-  background-color: #1e1e1e;
+  background-color: ${({theme}) => theme['gray-250']};
   transition: background-color 450ms;
   cursor: pointer;
   padding: 8px;
   width: 140px;
   border-radius: 4px;
-  color: inherit;
   text-decoration: none;
-  color: white;
-
+  color: ${({theme}) => theme.light};
+  font-size: 0.875rem;
   &:hover {
-    background-color: #414141;
+    background-color: ${({theme}) => theme['gray-200']};
   }
 
   > img {
@@ -33,7 +32,7 @@ const Input = styled.input`
 `
 
 export default function Search() {
-  const {spotify, eventBus} = useContext(Dependencies);
+  const {spotify, eventBus, theme} = useContext(Dependencies);
   const [playlists, setPlaylists] = useState([]);
 
   const onChange = useCallback(debounce((e) => {
@@ -53,9 +52,9 @@ export default function Search() {
 
   return (
     <>
-      <div style={{backgroundColor: 'black', height: '100%', overflowY: 'scroll', padding: "1rem"}}>
+      <div style={{backgroundColor: theme['gray-300'], height: '100%', overflowY: 'scroll', padding: "1rem"}}>
         <Input type="text" onChange={onChange} placeholder="Search playlists" /> 
-        <h2 style={{color: 'white'}}>Results</h2>
+        <h2 style={{color: theme.light}}>Results</h2>
         <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px', padding: '1rem 0 4rem'}}>
           {playlists.length && playlists.map(playlist => (
             <Playlist key={playlist.id} onClick={() => push(playlist.id)}>
