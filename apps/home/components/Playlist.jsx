@@ -61,7 +61,7 @@ export default function Playlist() {
 
   useEffect(() => {
     spotify.getPlaylist(id).then(response => setPlaylist(response))
-  }, [])
+  }, [id])
 
   const play = (track) => {
     eventBus.dispatch('PLAY', track)
