@@ -10,7 +10,7 @@ const Wrapper = styled.section `
 `
 
 const Playlist = styled.div`
-  background-color: #1e1e1e;
+  background-color: ${({theme}) => theme['gray-250']};
   transition: background-color 450ms;
   cursor: pointer;
   padding: 8px;
@@ -20,7 +20,7 @@ const Playlist = styled.div`
   text-decoration: none;
 
   &:hover {
-    background-color: #414141;
+    background-color: ${({theme}) => theme['gray-200']};
   }
 
   > img {
@@ -37,7 +37,7 @@ const Name = styled.p`
 const OwnerName = styled.p`
   font-size: 0.75rem;
   margin: 0;
-  color: #b7b7b7;
+  color: ${({theme}) => theme['gray-100']};
   padding-bottom: 0.5rem;
 `
 
