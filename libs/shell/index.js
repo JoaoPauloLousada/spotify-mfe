@@ -1,6 +1,7 @@
 import SpotifyAPI from 'spotify-web-api-js';
 import Auth from './src/auth'
 import EventBus from './src/EventEmitter';
+import theme from './src/theme';
 
 const initialize = async ({ appUrl }) => {
   const spotify = new SpotifyAPI()
@@ -13,7 +14,7 @@ const initialize = async ({ appUrl }) => {
 
   const eventBus = new EventBus();
 
-  return Promise.resolve({ spotify, eventBus })
+  return Promise.resolve({ spotify, eventBus, theme })
 }
 
 export default {
