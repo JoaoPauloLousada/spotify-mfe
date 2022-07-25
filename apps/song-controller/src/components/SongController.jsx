@@ -9,6 +9,8 @@ import Range from './Range'
 
 const Wrapper = styled.section`
   background-color: ${({theme}) => theme['gray-300']};
+  border-top: 1px solid ${({theme}) => theme['gray-250']};
+  box-sizing: border-box;
   height: 100%;
   width: 100%;
   display: grid;
